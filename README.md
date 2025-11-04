@@ -35,7 +35,7 @@ Build and Run:
 
 Compile the Java files from the project root directory (src):
 
-javac com/crawler/*.java com/crawler/util/*.java
+javac com/crawler/\*.java com/crawler/util/\*.java
 
 
 Execute the application:
