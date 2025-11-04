@@ -3,37 +3,35 @@ Simple Multithreaded Domain Crawler
 
 This is a command-line web crawling application written in Java. It is designed to collect unique, in-domain URLs starting from a given URL using a fixed-size thread pool.
 
-Features
-JDK Only (No Libraries): Built using only the standard Java Development Kit (JDK), with no external third-party libraries.
+Features:
 
-Multithreaded: Uses multithreading (a configured thread pool size) to crawl multiple pages concurrently.
+1. JDK Only (No Libraries): Built using only the standard Java Development Kit (JDK), with no external third-party libraries.
 
-In-Domain Crawling: Only collects and crawls links that belong to the same base domain as the start URL.
+2. Multithreaded: Uses multithreading (a configured thread pool size) to crawl multiple pages concurrently.
 
-Link Filtering: It skips common non-page resources through: 
+3. Domain Crawling: Only collects and crawls links that belong to the same base domain as the start URL.
 
-1. Protocol Skip: Rejects mailto:, tel:, etc.
+4. Link Filtering: It skips common non-page resources through: 
 
-2. File Skip: Checks the URL extension to skip content links like .pdf, .jpg, .zip, .css, and .js, etc.
+  a. Protocol Skip: Rejects mailto:, tel:, etc.
 
-Crawl Limit: A maximum number of pages to crawl is set in order to avoid a crawler that runs forever in websites like for example Wikipedia.
+  b.  File Skip: Checks the URL extension to skip content links like .pdf, .jpg, .zip, .css, and .js, etc.
 
-Progress Report: Displays a status update during runtime so the user does not think the application is stuck for websites with a long crawltime.
+5. Crawl Limit: A maximum number of pages to crawl is set in order to avoid a crawler that runs forever in websites like for example Wikipedia.
 
-Sorted Output: Prints the final collection of unique links to the console, sorted by their label.
+6. Progress Report: Displays a status update during runtime so the user does not think the application is stuck for websites with a long crawltime.
+
+7. Sorted Output: Prints the final collection of unique links to the console, sorted by their label.
+
 
 Usage
 
 The application can be executed via the command line and requires a start URL. Thread pool size and crawl limit are optional arguments.
 
-java com.crawler.SimpleDomainCrawler https://ecosio.com 
-OR
-java com.crawler.SimpleDomainCrawler https://panci-electronic.com 10 500
-
 Dependencies
 JDK 17 or newer.
 
-Build and Run
+Build and Run:
 
 Compile the Java files from the project root directory (src):
 
@@ -55,14 +53,21 @@ Output Example
 The application will print a live status line while running, followed by the final report:
 
 Crawling example.com with x threads ...
+
 [/] Active: 2 | Found: 55 | Submitted: 50 | Time: 12s 
 
 --- Crawling Finished ---
 
 --- Unique Links Found (Sorted by Label) ---
-[https://example.com/about](https://example.com/about)
-[https://example.com/contact](https://example.com/contact)
-[https://example.com/index](https://example.com/index)
+
+https://example.com/about
+
+https://example.com/contact
+
+https://example.com/index
+
 ...
+
 -----------------------------------
+
 Number of links collected: 55
